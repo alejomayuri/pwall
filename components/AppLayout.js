@@ -2,6 +2,7 @@ import { fonts } from "styles/themes";
 import Image from "next/image";
 import HeadeMenu from "components/Header/HeaderMenu";
 import HeaderButton from "components/Header/HeaderButton";
+import SearchBar from "./Header/SearchBar";
 
 export default function AppLayout({ children }) {
   return (
@@ -18,12 +19,7 @@ export default function AppLayout({ children }) {
 
             <HeaderButton filled={false}>Log in</HeaderButton>
           </div>
-          <div className="search__bar">
-            <form>
-              <label placeholder="Buscar..." />
-              <button>Buscar</button>
-            </form>
-          </div>
+          <SearchBar />
         </header>
         <main>{children}</main>
       </div>
@@ -40,6 +36,7 @@ export default function AppLayout({ children }) {
         .top__header {
           display: flex;
           justify-content: space-between;
+          padding-bottom: 20px;
         }
 
         .logo {
@@ -49,36 +46,6 @@ export default function AppLayout({ children }) {
 
         .logo img {
           width: 100%;
-        }
-
-        .post__button,
-        .login__button {
-          align-items: center;
-          display: flex;
-        }
-
-        .post__button button {
-          background-color: #7f127f;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          font-family: ${fonts.header};
-          font-size: 17px;
-          font-weight: 800;
-          height: 40px;
-          width: 120px;
-        }
-
-        .login__button button {
-          background-color: transparent;
-          border: solid 3px #7f127f;
-          border-radius: 5px;
-          cursor: pointer;
-          font-family: ${fonts.header};
-          font-size: 17px;
-          font-weight: 800;
-          height: 40px;
-          width: 120px;
         }
       `}</style>
     </>

@@ -1,8 +1,8 @@
 import { fonts } from "styles/themes";
-import { themeColors } from "styles/themes";
+import { useRandomColor } from "hooks/useRandomColor";
 
 export default function Category({ children }) {
-  const i = Math.floor(Math.random() * themeColors.length);
+  const { color } = useRandomColor();
 
   return (
     <>
@@ -12,7 +12,7 @@ export default function Category({ children }) {
 
       <style jsx>{`
         li {
-          border-bottom: solid 4px ${themeColors[i]};
+          border-bottom: solid 4px ${color};
           cursor: pointer;
           font-family: ${fonts.header};
           font-weight: 800;
@@ -23,7 +23,7 @@ export default function Category({ children }) {
         }
 
         li:hover {
-          background-color: ${`${themeColors[i]}c7`};
+          background-color: ${`${color}c7`};
         }
       `}</style>
     </>

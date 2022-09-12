@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
 import AppLayout from "components/AppLayout";
+import TrendingSection from "components/Home/TrendingSection";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <AppLayout>
-        <h1>Página Home</h1>
+        <TrendingSection />
       </AppLayout>
     </>
   );
