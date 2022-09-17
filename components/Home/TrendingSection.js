@@ -1,23 +1,16 @@
-import { useCallback, useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import Trending from "components/Icons/Trending";
+import Image from "next/image";
 
 export default function TrendingSection() {
   const [activeButton, setActiveButton] = useState(false);
 
   const element = useRef(null);
 
-  const onScroll = () => {
-    console.log("hola");
-  };
-
-  useEffect(() => console.log(element), []);
-
   function scrollLeft(element, change, duration) {
     const start = element.current.scrollLeft;
-    const currentTime = 0;
-    const increment = 20;
-
-    console.log(start);
+    let currentTime = 0;
+    const increment = 30;
 
     const animateScroll = function () {
       currentTime += increment;
@@ -42,7 +35,7 @@ export default function TrendingSection() {
     setActiveButton(true);
     setTimeout(() => {
       setActiveButton(false);
-    }, 1700);
+    }, 1000);
   };
 
   const handleLessScroll = () => {
@@ -50,7 +43,7 @@ export default function TrendingSection() {
     setActiveButton(true);
     setTimeout(() => {
       setActiveButton(false);
-    }, 1700);
+    }, 1000);
   };
 
   return (
@@ -68,9 +61,9 @@ export default function TrendingSection() {
           <button onClick={handleLessScroll} disabled={activeButton}>
             Anterior
           </button>
-          <ul ref={element} onScroll={onScroll}>
-            <li>
-              <div className="box box-1"></div>
+          <ul ref={element}>
+            <li style={{ height: "100%", position: "relative" }}>
+              <img className="image" src="/trendingBanner1.png" alt="pwall" />
             </li>
             <li>
               <div className="box box-2"></div>
@@ -110,7 +103,7 @@ export default function TrendingSection() {
           background: #fff;
 
           height: 140px;
-          width: 36%;
+          width: 100%;
         }
         .box {
           height: 100px;
@@ -143,12 +136,16 @@ export default function TrendingSection() {
           z-index: 1;
         }
         ul {
-          overflow-x: scroll;
+          overflow: hidden;
           margin: 0px;
           padding: 0px 6px 0px 0px;
           white-space: nowrap;
           text-align: left;
-          height: 160px;
+          height: 100%;
+        }
+
+        .image {
+          height: 100%;
         }
       `}</style>
     </>
